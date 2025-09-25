@@ -26,14 +26,6 @@ import warnings
 from contextlib import suppress
 from typing import Optional
 
-from dotenv import load_dotenv
-from english_teacher_prompt import get_english_teaching_instruction
-
-from livekit.agents import Agent, AgentSession, JobContext, WorkerOptions, WorkerType, cli
-from livekit.plugins import google, tavus
-from livekit import rtc
-from livekit.agents._exceptions import APIStatusError
-
 # Configure logging with more detailed formatting
 logging.basicConfig(
     level=logging.INFO,
@@ -45,6 +37,25 @@ logging.basicConfig(
 )
 logger = logging.getLogger("english-teacher-agent")
 logger.setLevel(logging.INFO)
+
+from dotenv import load_dotenv
+from english_teacher_prompt import get_english_teaching_instruction
+
+from livekit.agents import Agent, AgentSession, JobContext, WorkerOptions, WorkerType, cli
+from livekit.plugins import google, tavus
+from livekit import rtc
+from livekit.agents._exceptions import APIStatusError
+
+# Try to import Ollama plugin - might not be available
+OLLAMA_AVAILABLE = False
+ollama_plugin = None
+try:
+    import importlib
+    ollama_plugin = importlib.import_module('livekit.plugins.ollama')
+    OLLAMA_AVAILABLE = True
+    logger.info("Ollama plugin available")
+except ImportError:
+    logger.warning("Ollama plugin not available, will use Gemini as primary LLM")
 
 # Global state for keeping the agent running
 _shutdown_requested = False
@@ -94,6 +105,59 @@ logger.info(f"  TAVUS_API_KEY: {'OK' if os.getenv('TAVUS_API_KEY') else 'MISSING
 logger.info(f"  TAVUS_REPLICA_ID: {'OK' if os.getenv('TAVUS_REPLICA_ID') else 'MISSING'}")
 logger.info(f"  TAVUS_PERSONA_ID: {'OK' if os.getenv('TAVUS_PERSONA_ID') else 'MISSING'}")
 
+def create_ollama_session():
+    """Create a session with Ollama as the primary LLM."""
+    if not OLLAMA_AVAILABLE or ollama_plugin is None:
+        logger.info("Ollama not available, skipping Ollama session creation")
+        return None
+        
+    try:
+        # Try to connect to local Ollama server on port 11434
+        ollama_model = os.getenv('OLLAMA_MODEL', 'llama3')
+        ollama_base_url = os.getenv('OLLAMA_BASE_URL', 'http://localhost:11434')
+        logger.info(f"Attempting to connect to Ollama server at {ollama_base_url} with model: {ollama_model}")
+        
+        session = AgentSession(
+            llm=ollama_plugin.LLM(
+                model=ollama_model,
+                base_url=ollama_base_url
+            ),
+        )
+        logger.info("[SUCCESS] Ollama session created successfully")
+        return session
+    except Exception as e:
+        logger.warning(f"Failed to create Ollama session: {e}")
+        return None
+
+def create_gemini_session():
+    """Create a session with Google's Gemini as the fallback LLM."""
+    try:
+        # Create session with Google's Realtime model using the correct syntax
+        session = AgentSession(
+            llm=google.beta.realtime.RealtimeModel(
+                model="gemini-2.0-flash-exp",
+                voice="Puck",
+                temperature=0.8,
+            ),
+        )
+        logger.info("[SUCCESS] Google Realtime model session created successfully")
+        return session
+    except Exception as e:
+        logger.error(f"Failed to create Gemini session: {e}")
+        return None
+
+async def create_session_with_fallback():
+    """Create a session with fallback mechanism: Ollama -> Gemini."""
+    # Try to create Ollama session first (primary choice)
+    session = create_ollama_session()
+    
+    # If Ollama fails, fall back to Gemini
+    if session is None:
+        logger.info("Falling back to Gemini as primary LLM")
+        session = create_gemini_session()
+        
+    return session
+
 async def entrypoint(ctx: JobContext) -> None:
     """Main agent entrypoint for English Teacher Agent.
     
@@ -111,29 +175,13 @@ async def entrypoint(ctx: JobContext) -> None:
     tavus_error = None  # Track Tavus-specific errors
     
     try:
-        # Create session with Google's Realtime model with retry logic
-        retry_count = 0
-        max_retries = 3
+        # Create session with fallback mechanism
+        session = await create_session_with_fallback()
         
-        while retry_count < max_retries:
-            try:
-                # Create session with Google's Realtime model using the correct syntax
-                session = AgentSession(
-                    llm=google.beta.realtime.RealtimeModel(
-                        model="gemini-2.0-flash-exp",
-                        voice="Puck",
-                        temperature=0.8,
-                    ),
-                )
-                logger.info("[SUCCESS] Google Realtime model session created successfully")
-                break
-            except Exception as e:
-                retry_count += 1
-                logger.warning(f"Failed to create session (attempt {retry_count}/{max_retries}): {e}")
-                if retry_count >= max_retries:
-                    raise
-                await asyncio.sleep(2 ** retry_count)  # Exponential backoff
-
+        # If both fail, raise an error
+        if session is None:
+            raise Exception("Failed to create session with either Ollama or Gemini")
+        
         # Get Tavus credentials from environment
         tavus_api_key = os.getenv("TAVUS_API_KEY")
         replica_id = os.getenv("TAVUS_REPLICA_ID")
@@ -280,28 +328,17 @@ async def cleanup_resources(session: Optional[AgentSession] = None, avatar: Opti
     """Clean up resources gracefully."""
     logger.info("Cleaning up resources...")
     
-    if avatar:
-        try:
-            with suppress(Exception):
-                await avatar.aclose()
-            logger.info("Avatar session cleaned up")
-        except Exception as e:
-            logger.warning(f"Error cleaning up avatar: {e}")
+    # Note: AvatarSession doesn't appear to have a close/aclose method based on dir() output
+    # We'll just clean up the session
     
     if session:
         try:
             with suppress(Exception):
+                # AgentSession has an aclose method
                 await session.aclose()
             logger.info("Agent session cleaned up")
         except Exception as e:
             logger.warning(f"Error cleaning up session: {e}")
-
-
-def signal_handler(signum, frame):
-    """Handle shutdown signals gracefully."""
-    global _shutdown_requested
-    logger.info(f"Received signal {signum}, initiating graceful shutdown...")
-    _shutdown_requested = True
 
 
 async def run_agent_with_auto_restart():
@@ -348,6 +385,64 @@ async def run_agent_with_auto_restart():
                 break
     
     logger.info("Agent shutdown complete")
+
+
+def run_agent_for_render():
+    """Run the agent specifically for Render deployment with proper port handling."""
+    import threading
+    from http.server import HTTPServer, BaseHTTPRequestHandler
+    import asyncio
+    
+    # Simple HTTP handler for Render health checks
+    class HealthCheckHandler(BaseHTTPRequestHandler):
+        def do_GET(self):
+            if self.path == "/health":
+                self.send_response(200)
+                self.send_header("Content-type", "application/json")
+                self.end_headers()
+                self.wfile.write(b'{"status": "healthy", "agent": "English Teacher Agent"}')
+            else:
+                self.send_response(200)
+                self.send_header("Content-type", "text/plain")
+                self.end_headers()
+                self.wfile.write(b"English Teacher Agent is running on Render")
+        
+        def log_message(self, format, *args):
+            # Suppress logging
+            return
+    
+    # Get port from Render environment or default to 8000
+    port = int(os.environ.get("PORT", 8000))
+    logger.info(f"Starting health check server on port {port}")
+    
+    # Start health check server in a separate thread
+    def start_health_server():
+        try:
+            server = HTTPServer(('', port), HealthCheckHandler)
+            logger.info(f"Health check server started on port {port}")
+            server.serve_forever()
+        except Exception as e:
+            logger.error(f"Failed to start health check server: {e}")
+    
+    health_thread = threading.Thread(target=start_health_server, daemon=True)
+    health_thread.start()
+    
+    # Configure SSL for development
+    configure_ssl_for_development()
+    
+    # Start the LiveKit agent (this will block)
+    logger.info("[START] Starting LiveKit agent for Render deployment...")
+    cli.run_app(WorkerOptions(
+        entrypoint_fnc=entrypoint, 
+        worker_type=WorkerType.ROOM
+    ))
+
+
+def signal_handler(signum, frame):
+    """Handle shutdown signals gracefully."""
+    global _shutdown_requested
+    logger.info(f"Received signal {signum}, initiating graceful shutdown...")
+    _shutdown_requested = True
 
 
 def run_detached_background():

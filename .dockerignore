@@ -1,0 +1,13 @@
+.git
+.gitignore
+README.md
+.env
+.env.local
+__pycache__
+*.log
+*.pyc
+.pytest_cache
+.coverage
+htmlcov
+.pytype
+.mypy_cache

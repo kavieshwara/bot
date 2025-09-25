@@ -5,6 +5,7 @@ livekit-plugins-openai
 livekit-plugins-silero
 livekit-plugins-google
 livekit-plugins-noise-cancellation==0.2.3
+livekit-plugins-ollama
 mem0ai
 duckduckgo-search
 langchain_community

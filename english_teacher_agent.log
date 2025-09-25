@@ -8510,3 +8510,434 @@ livekit.agents._exceptions.APIConnectionError: Failed to connect to Gemini Live 
 2025-09-12 12:34:21,261 - livekit.agents - DEBUG - input stream detached
 2025-09-12 12:34:21,265 - livekit.agents - DEBUG - stream closed
 2025-09-12 12:34:21,267 - livekit.agents - DEBUG - session closed
+2025-09-15 15:09:09,979 - english-teacher-agent - INFO - Applied Tavus API key
+2025-09-15 15:09:09,980 - english-teacher-agent - INFO - Applied Tavus Replica ID
+2025-09-15 15:09:09,981 - english-teacher-agent - INFO - Applied Tavus Persona ID (LiveKit-compatible)
+2025-09-15 15:09:09,981 - english-teacher-agent - INFO - Environment variables status:
+2025-09-15 15:09:09,981 - english-teacher-agent - INFO -   LIVEKIT_URL: OK
+2025-09-15 15:09:09,982 - english-teacher-agent - INFO -   LIVEKIT_API_KEY: OK
+2025-09-15 15:09:09,982 - english-teacher-agent - INFO -   LIVEKIT_API_SECRET: OK
+2025-09-15 15:09:09,982 - english-teacher-agent - INFO -   GOOGLE_API_KEY: OK
+2025-09-15 15:09:09,983 - english-teacher-agent - INFO -   TAVUS_API_KEY: OK
+2025-09-15 15:09:09,983 - english-teacher-agent - INFO -   TAVUS_REPLICA_ID: OK
+2025-09-15 15:09:09,984 - english-teacher-agent - INFO -   TAVUS_PERSONA_ID: OK
+2025-09-15 15:09:09,985 - english-teacher-agent - INFO - Starting development mode for room: english-teacher-demo
+2025-09-15 15:09:10,039 - english-teacher-agent - INFO - SSL verification disabled for development
+2025-09-15 15:09:10,174 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-09-15 15:09:10,180 - livekit.agents - DEV - Watching C:\Users\Dell\Downloads\tamil (2)
+2025-09-15 15:09:13,755 - english-teacher-agent - INFO - Environment variables status:
+2025-09-15 15:09:13,755 - english-teacher-agent - INFO -   LIVEKIT_URL: OK
+2025-09-15 15:09:13,755 - english-teacher-agent - INFO -   LIVEKIT_API_KEY: OK
+2025-09-15 15:09:13,756 - english-teacher-agent - INFO -   LIVEKIT_API_SECRET: OK
+2025-09-15 15:09:13,756 - english-teacher-agent - INFO -   GOOGLE_API_KEY: OK
+2025-09-15 15:09:13,756 - english-teacher-agent - INFO -   TAVUS_API_KEY: OK
+2025-09-15 15:09:13,756 - english-teacher-agent - INFO -   TAVUS_REPLICA_ID: OK
+2025-09-15 15:09:13,756 - english-teacher-agent - INFO -   TAVUS_PERSONA_ID: OK
+2025-09-15 15:09:13,765 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-09-15 15:09:13,780 - livekit.agents - INFO - starting worker
+2025-09-15 15:09:14,414 - livekit.agents - INFO - registered worker
+2025-09-15 15:09:14,465 - livekit.agents - INFO - received job request
+2025-09-15 15:09:14,533 - livekit.agents - INFO - initializing job runner
+2025-09-15 15:09:14,554 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-09-15 15:09:14,555 - livekit.agents - INFO - job runner initialized
+2025-09-15 15:09:14,570 - english-teacher-agent - INFO - Initializing English Teacher Agent with Tavus Avatar... (Restart #0)
+2025-09-15 15:09:14,574 - english-teacher-agent - INFO - [SUCCESS] Google Realtime model session created successfully
+2025-09-15 15:09:14,574 - english-teacher-agent - INFO - Configuring Tavus avatar with Replica ID: rf4703150052, Persona ID: p405fa2e1e31
+2025-09-15 15:09:14,575 - livekit.agents - DEBUG - http_session(): creating a new httpclient ctx
+2025-09-15 15:09:14,578 - english-teacher-agent - INFO - [AVATAR] Initializing Tavus avatar...
+2025-09-15 15:09:14,585 - livekit.plugins.tavus - DEBUG - starting avatar session
+2025-09-15 15:09:16,537 - livekit.plugins.tavus - ERROR - failed to call tavus api
+Traceback (most recent call last):
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python313\Lib\site-packages\livekit\plugins\tavus\api.py", line 126, in _post
+    raise APIStatusError(
+        "Server returned an error", status_code=response.status, body=text
+    )
+livekit.agents._exceptions.APIStatusError: Server returned an error (status_code=402, request_id=None, body={"message":"The user is out of conversational credits."}
+, retryable=False)
+2025-09-15 15:09:19,774 - livekit.plugins.tavus - ERROR - failed to call tavus api
+Traceback (most recent call last):
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python313\Lib\site-packages\livekit\plugins\tavus\api.py", line 126, in _post
+    raise APIStatusError(
+        "Server returned an error", status_code=response.status, body=text
+    )
+livekit.agents._exceptions.APIStatusError: Server returned an error (status_code=402, request_id=None, body={"message":"The user is out of conversational credits."}
+, retryable=False)
+2025-09-15 15:09:22,875 - livekit.plugins.tavus - ERROR - failed to call tavus api
+Traceback (most recent call last):
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python313\Lib\site-packages\livekit\plugins\tavus\api.py", line 126, in _post
+    raise APIStatusError(
+        "Server returned an error", status_code=response.status, body=text
+    )
+livekit.agents._exceptions.APIStatusError: Server returned an error (status_code=402, request_id=None, body={"message":"The user is out of conversational credits."}
+, retryable=False)
+2025-09-15 15:09:22,876 - english-teacher-agent - ERROR - Failed to initialize Tavus avatar: Failed to call Tavus API after all retries (body=None, retryable=True)
+2025-09-15 15:09:22,877 - english-teacher-agent - INFO - Falling back to voice-only mode...
+2025-09-15 15:09:22,942 - livekit.agents - DEBUG - input stream attached
+2025-09-15 15:09:25,135 - livekit.agents - WARNING - Running <Task finished name='Task-27' coro=<AgentSession._update_activity() done, defined at C:\Users\Dell\AppData\Local\Programs\Python\Python313\Lib\site-packages\livekit\agents\voice\agent_session.py:806> result=None> took too long: 2.19 seconds
+2025-09-15 15:09:25,136 - livekit.plugins.google - DEBUG - connecting to Gemini Realtime API...
+2025-09-15 15:09:25,144 - livekit.agents - DEBUG - start reading stream
+2025-09-15 15:09:25,145 - livekit.agents - DEBUG - using audio io: `RoomIO` -> `AgentSession` -> `TranscriptSynchronizer` -> `RoomIO`
+2025-09-15 15:09:25,147 - livekit.agents - DEBUG - using transcript io: `AgentSession` -> `TranscriptSynchronizer` -> `RoomIO`
+2025-09-15 15:09:25,148 - english-teacher-agent - INFO - [ACTIVE] English Teacher Agent (voice-only) is now active!
+2025-09-15 15:09:25,148 - english-teacher-agent - INFO - Starting session keep-alive monitoring...
+2025-09-15 15:09:34,104 - google_genai.live - INFO - b'{\n  "setupComplete": {}\n}\n'
+2025-09-15 15:18:51,918 - livekit.plugins.google - ERROR - error in receive task: sent 1011 (internal error) keepalive ping timeout; no close frame received
+Traceback (most recent call last):
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python313\Lib\site-packages\livekit\plugins\google\beta\realtime\realtime_api.py", line 703, in _recv_task
+    async for response in session.receive():
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<31 lines>...
+            self._num_retries = 0  # reset the retry counter
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python313\Lib\site-packages\google\genai\live.py", line 443, in receive
+    while result := await self._receive():
+                    ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python313\Lib\site-packages\google\genai\live.py", line 524, in _receive
+    raw_response = await self._ws.recv(decode=False)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python313\Lib\site-packages\websockets\asyncio\connection.py", line 322, in recv
+    raise self.protocol.close_exc from self.recv_exc
+websockets.exceptions.ConnectionClosedError: sent 1011 (internal error) keepalive ping timeout; no close frame received
+2025-09-15 15:18:52,176 - livekit.plugins.google - DEBUG - send task finished.
+2025-09-15 15:18:52,209 - livekit.plugins.google - DEBUG - connecting to Gemini Realtime API...
+2025-09-15 15:18:55,326 - google_genai.live - INFO - b'{\n  "setupComplete": {}\n}\n'
+2025-09-15 15:19:59,878 - livekit.agents - INFO - closing agent session due to participant disconnect (disable via `RoomInputOptions.close_on_disconnect=False`)
+2025-09-15 15:19:59,934 - livekit.agents - DEBUG - stream closed
+2025-09-15 15:19:59,949 - livekit.agents - DEBUG - input stream detached
+2025-09-15 15:20:03,732 - livekit.plugins.google - DEBUG - send task finished.
+2025-09-15 15:20:08,344 - livekit.agents - DEBUG - session closed
+2025-09-15 15:20:25,903 - livekit.agents - DEBUG - shutting down job task
+2025-09-15 15:20:25,918 - livekit.agents - DEBUG - job exiting
+2025-09-15 15:20:25,940 - livekit.agents - DEBUG - http_session(): closing the httpclient ctx
+2025-09-15 15:20:27,286 - livekit.agents - INFO - shutting down worker
+2025-09-15 15:51:56,379 - english-teacher-agent - INFO - Applied Tavus API key
+2025-09-15 15:51:56,381 - english-teacher-agent - INFO - Applied Tavus Replica ID
+2025-09-15 15:51:56,381 - english-teacher-agent - INFO - Applied Tavus Persona ID (LiveKit-compatible)
+2025-09-15 15:51:56,381 - english-teacher-agent - INFO - Environment variables status:
+2025-09-15 15:51:56,382 - english-teacher-agent - INFO -   LIVEKIT_URL: OK
+2025-09-15 15:51:56,382 - english-teacher-agent - INFO -   LIVEKIT_API_KEY: OK
+2025-09-15 15:51:56,382 - english-teacher-agent - INFO -   LIVEKIT_API_SECRET: OK
+2025-09-15 15:51:56,382 - english-teacher-agent - INFO -   GOOGLE_API_KEY: OK
+2025-09-15 15:51:56,383 - english-teacher-agent - INFO -   TAVUS_API_KEY: OK
+2025-09-15 15:51:56,383 - english-teacher-agent - INFO -   TAVUS_REPLICA_ID: OK
+2025-09-15 15:51:56,383 - english-teacher-agent - INFO -   TAVUS_PERSONA_ID: OK
+2025-09-15 15:51:56,388 - english-teacher-agent - INFO - Starting English Teacher Agent with auto-restart capability...
+2025-09-15 15:51:56,421 - english-teacher-agent - INFO - SSL verification disabled for development
+2025-09-15 15:51:56,423 - english-teacher-agent - INFO - [START] Starting LiveKit agent...
+2025-09-17 12:26:49,621 - english-teacher-agent - INFO - Applied Tavus API key
+2025-09-17 12:26:49,624 - english-teacher-agent - INFO - Applied Tavus Replica ID
+2025-09-17 12:26:49,625 - english-teacher-agent - INFO - Applied Tavus Persona ID (LiveKit-compatible)
+2025-09-17 12:26:49,625 - english-teacher-agent - INFO - Environment variables status:
+2025-09-17 12:26:49,626 - english-teacher-agent - INFO -   LIVEKIT_URL: OK
+2025-09-17 12:26:49,626 - english-teacher-agent - INFO -   LIVEKIT_API_KEY: OK
+2025-09-17 12:26:49,627 - english-teacher-agent - INFO -   LIVEKIT_API_SECRET: OK
+2025-09-17 12:26:49,627 - english-teacher-agent - INFO -   GOOGLE_API_KEY: OK
+2025-09-17 12:26:49,628 - english-teacher-agent - INFO -   TAVUS_API_KEY: OK
+2025-09-17 12:26:49,628 - english-teacher-agent - INFO -   TAVUS_REPLICA_ID: OK
+2025-09-17 12:26:49,629 - english-teacher-agent - INFO -   TAVUS_PERSONA_ID: OK
+2025-09-17 12:26:49,629 - english-teacher-agent - INFO - Starting development mode for room: english-teacher-demo
+2025-09-17 12:26:49,701 - english-teacher-agent - INFO - SSL verification disabled for development
+2025-09-17 12:26:49,802 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-09-17 12:26:49,814 - livekit.agents - DEV - Watching C:\Users\Dell\Downloads\tamil (2)
+2025-09-17 12:26:55,519 - english-teacher-agent - INFO - Environment variables status:
+2025-09-17 12:26:55,519 - english-teacher-agent - INFO -   LIVEKIT_URL: OK
+2025-09-17 12:26:55,520 - english-teacher-agent - INFO -   LIVEKIT_API_KEY: OK
+2025-09-17 12:26:55,520 - english-teacher-agent - INFO -   LIVEKIT_API_SECRET: OK
+2025-09-17 12:26:55,521 - english-teacher-agent - INFO -   GOOGLE_API_KEY: OK
+2025-09-17 12:26:55,521 - english-teacher-agent - INFO -   TAVUS_API_KEY: OK
+2025-09-17 12:26:55,522 - english-teacher-agent - INFO -   TAVUS_REPLICA_ID: OK
+2025-09-17 12:26:55,522 - english-teacher-agent - INFO -   TAVUS_PERSONA_ID: OK
+2025-09-17 12:26:55,538 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-09-17 12:26:55,563 - livekit.agents - INFO - starting worker
+2025-09-17 12:26:55,991 - livekit.agents - INFO - registered worker
+2025-09-17 12:35:04,295 - livekit.agents - WARNING - failed to connect to livekit, retrying in 0s
+Traceback (most recent call last):
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python313\Lib\site-packages\livekit\agents\worker.py", line 689, in _connection_task
+    await self._run_ws(ws)
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python313\Lib\site-packages\livekit\agents\worker.py", line 770, in _run_ws
+    await asyncio.gather(*tasks)
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python313\Lib\site-packages\livekit\agents\worker.py", line 733, in _recv_task
+    msg = await ws.receive()
+          ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiohttp\client_ws.py", line 378, in receive
+    await self.pong(msg.data)
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiohttp\client_ws.py", line 234, in pong
+    await self._writer.send_frame(message, WSMsgType.PONG)
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiohttp\_websocket\writer.py", line 126, in send_frame
+    raise ClientConnectionResetError("Cannot write to closing transport")
+aiohttp.client_exceptions.ClientConnectionResetError: Cannot write to closing transport
+2025-09-17 12:35:06,203 - livekit.agents - INFO - registered worker
+2025-09-17 13:00:50,720 - livekit.agents - WARNING - unexpected message type: 258
+2025-09-17 13:00:53,271 - livekit.agents - WARNING - Running <Task finished name='Task-16' coro=<Worker._run_ws.<locals>._recv_task() done, defined at C:\Users\Dell\AppData\Local\Programs\Python\Python313\Lib\site-packages\livekit\agents\worker.py:730> exception=Exception('worker connection closed unexpectedly')> took too long: 2.57 seconds
+2025-09-17 13:00:53,396 - livekit.agents - WARNING - failed to connect to livekit, retrying in 0s
+Traceback (most recent call last):
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python313\Lib\site-packages\livekit\agents\worker.py", line 689, in _connection_task
+    await self._run_ws(ws)
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python313\Lib\site-packages\livekit\agents\worker.py", line 770, in _run_ws
+    await asyncio.gather(*tasks)
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python313\Lib\site-packages\livekit\agents\worker.py", line 742, in _recv_task
+    raise Exception("worker connection closed unexpectedly")
+Exception: worker connection closed unexpectedly
+2025-09-17 13:00:55,427 - livekit.agents - INFO - registered worker
+2025-09-17 13:16:05,367 - livekit.agents - WARNING - failed to connect to livekit, retrying in 0s
+Traceback (most recent call last):
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python313\Lib\site-packages\livekit\agents\worker.py", line 689, in _connection_task
+    await self._run_ws(ws)
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python313\Lib\site-packages\livekit\agents\worker.py", line 770, in _run_ws
+    await asyncio.gather(*tasks)
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python313\Lib\site-packages\livekit\agents\worker.py", line 733, in _recv_task
+    msg = await ws.receive()
+          ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiohttp\client_ws.py", line 378, in receive
+    await self.pong(msg.data)
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiohttp\client_ws.py", line 234, in pong
+    await self._writer.send_frame(message, WSMsgType.PONG)
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python313\Lib\site-packages\aiohttp\_websocket\writer.py", line 126, in send_frame
+    raise ClientConnectionResetError("Cannot write to closing transport")
+aiohttp.client_exceptions.ClientConnectionResetError: Cannot write to closing transport
+2025-09-17 13:16:08,880 - livekit.agents - INFO - registered worker
+2025-09-18 08:42:32,149 - english-teacher-agent - INFO - Applied Tavus API key
+2025-09-18 08:42:32,151 - english-teacher-agent - INFO - Applied Tavus Replica ID
+2025-09-18 08:42:32,152 - english-teacher-agent - INFO - Applied Tavus Persona ID (LiveKit-compatible)
+2025-09-18 08:42:32,152 - english-teacher-agent - INFO - Environment variables status:
+2025-09-18 08:42:32,153 - english-teacher-agent - INFO -   LIVEKIT_URL: OK
+2025-09-18 08:42:32,153 - english-teacher-agent - INFO -   LIVEKIT_API_KEY: OK
+2025-09-18 08:42:32,154 - english-teacher-agent - INFO -   LIVEKIT_API_SECRET: OK
+2025-09-18 08:42:32,154 - english-teacher-agent - INFO -   GOOGLE_API_KEY: OK
+2025-09-18 08:42:32,155 - english-teacher-agent - INFO -   TAVUS_API_KEY: OK
+2025-09-18 08:42:32,155 - english-teacher-agent - INFO -   TAVUS_REPLICA_ID: OK
+2025-09-18 08:42:32,156 - english-teacher-agent - INFO -   TAVUS_PERSONA_ID: OK
+2025-09-18 08:42:32,156 - english-teacher-agent - INFO - Starting development mode for room: english-teacher-demo
+2025-09-18 08:42:32,224 - english-teacher-agent - INFO - SSL verification disabled for development
+2025-09-18 08:42:32,340 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-09-18 08:42:32,350 - livekit.agents - DEV - Watching C:\Users\Dell\Downloads\tamil (2)
+2025-09-18 08:42:37,158 - english-teacher-agent - INFO - Environment variables status:
+2025-09-18 08:42:37,158 - english-teacher-agent - INFO -   LIVEKIT_URL: OK
+2025-09-18 08:42:37,159 - english-teacher-agent - INFO -   LIVEKIT_API_KEY: OK
+2025-09-18 08:42:37,159 - english-teacher-agent - INFO -   LIVEKIT_API_SECRET: OK
+2025-09-18 08:42:37,160 - english-teacher-agent - INFO -   GOOGLE_API_KEY: OK
+2025-09-18 08:42:37,160 - english-teacher-agent - INFO -   TAVUS_API_KEY: OK
+2025-09-18 08:42:37,161 - english-teacher-agent - INFO -   TAVUS_REPLICA_ID: OK
+2025-09-18 08:42:37,162 - english-teacher-agent - INFO -   TAVUS_PERSONA_ID: OK
+2025-09-18 08:42:37,182 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-09-18 08:42:37,218 - livekit.agents - INFO - starting worker
+2025-09-18 08:42:38,514 - livekit.agents - INFO - registered worker
+2025-09-18 08:44:11,671 - livekit.agents - INFO - shutting down worker
+2025-09-23 08:45:29,091 - english-teacher-agent - INFO - Applied Tavus API key
+2025-09-23 08:45:29,094 - english-teacher-agent - INFO - Applied Tavus Replica ID
+2025-09-23 08:45:29,094 - english-teacher-agent - INFO - Applied Tavus Persona ID (LiveKit-compatible)
+2025-09-23 08:45:29,095 - english-teacher-agent - INFO - Environment variables status:
+2025-09-23 08:45:29,096 - english-teacher-agent - INFO -   LIVEKIT_URL: OK
+2025-09-23 08:45:29,096 - english-teacher-agent - INFO -   LIVEKIT_API_KEY: OK
+2025-09-23 08:45:29,097 - english-teacher-agent - INFO -   LIVEKIT_API_SECRET: OK
+2025-09-23 08:45:29,097 - english-teacher-agent - INFO -   GOOGLE_API_KEY: OK
+2025-09-23 08:45:29,098 - english-teacher-agent - INFO -   TAVUS_API_KEY: OK
+2025-09-23 08:45:29,098 - english-teacher-agent - INFO -   TAVUS_REPLICA_ID: OK
+2025-09-23 08:45:29,099 - english-teacher-agent - INFO -   TAVUS_PERSONA_ID: OK
+2025-09-23 08:45:29,100 - english-teacher-agent - INFO - Starting in console mode...
+2025-09-23 08:45:29,189 - english-teacher-agent - INFO - SSL verification disabled for development
+2025-09-23 08:45:29,201 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-09-23 08:45:29,211 - livekit.agents - INFO - starting worker
+2025-09-23 08:45:29,231 - livekit.agents - INFO - initializing job runner
+2025-09-23 08:45:29,234 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-09-23 08:45:29,234 - livekit.agents - INFO - job runner initialized
+2025-09-23 08:45:29,434 - english-teacher-agent - INFO - Initializing English Teacher Agent with Tavus Avatar... (Restart #0)
+2025-09-23 08:45:29,439 - english-teacher-agent - INFO - [SUCCESS] Google Realtime model session created successfully
+2025-09-23 08:45:29,440 - english-teacher-agent - INFO - Configuring Tavus avatar with Replica ID: rf4703150052, Persona ID: p405fa2e1e31
+2025-09-23 08:45:29,441 - livekit.agents - DEBUG - http_session(): creating a new httpclient ctx
+2025-09-23 08:45:29,443 - english-teacher-agent - INFO - [AVATAR] Initializing Tavus avatar...
+2025-09-23 08:45:29,447 - livekit.plugins.tavus - DEBUG - starting avatar session
+2025-09-23 08:45:32,182 - livekit.plugins.tavus - ERROR - failed to call tavus api
+Traceback (most recent call last):
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python313\Lib\site-packages\livekit\plugins\tavus\api.py", line 126, in _post
+    raise APIStatusError(
+        "Server returned an error", status_code=response.status, body=text
+    )
+livekit.agents._exceptions.APIStatusError: Server returned an error (status_code=402, request_id=None, body={"message":"The user is out of conversational credits."}
+, retryable=False)
+2025-09-23 08:45:35,510 - livekit.plugins.tavus - ERROR - failed to call tavus api
+Traceback (most recent call last):
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python313\Lib\site-packages\livekit\plugins\tavus\api.py", line 126, in _post
+    raise APIStatusError(
+        "Server returned an error", status_code=response.status, body=text
+    )
+livekit.agents._exceptions.APIStatusError: Server returned an error (status_code=402, request_id=None, body={"message":"The user is out of conversational credits."}
+, retryable=False)
+2025-09-23 08:45:39,020 - livekit.plugins.tavus - ERROR - failed to call tavus api
+Traceback (most recent call last):
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python313\Lib\site-packages\livekit\plugins\tavus\api.py", line 126, in _post
+    raise APIStatusError(
+        "Server returned an error", status_code=response.status, body=text
+    )
+livekit.agents._exceptions.APIStatusError: Server returned an error (status_code=402, request_id=None, body={"message":"The user is out of conversational credits."}
+, retryable=False)
+2025-09-23 08:45:39,024 - english-teacher-agent - ERROR - Failed to initialize Tavus avatar: Failed to call Tavus API after all retries (body=None, retryable=True)
+2025-09-23 08:45:39,026 - english-teacher-agent - INFO - Falling back to voice-only mode...
+2025-09-23 08:45:41,204 - livekit.agents - WARNING - Running <Task finished name='_chat_cli_start' coro=<ChatCLI.start() done, defined at C:\Users\Dell\AppData\Local\Programs\Python\Python313\Lib\site-packages\livekit\agents\voice\chat_cli.py:207> result=None> took too long: 2.07 seconds
+2025-09-23 08:45:43,332 - livekit.agents - WARNING - Running <Task finished name='Task-26' coro=<AgentSession._update_activity() done, defined at C:\Users\Dell\AppData\Local\Programs\Python\Python313\Lib\site-packages\livekit\agents\voice\agent_session.py:806> result=None> took too long: 2.13 seconds
+2025-09-23 08:45:43,337 - livekit.plugins.google - DEBUG - connecting to Gemini Realtime API...
+2025-09-23 08:45:43,369 - livekit.agents - DEBUG - using audio io: `ChatCLI` -> `AgentSession` -> `TranscriptSynchronizer` -> `ChatCLI`
+2025-09-23 08:45:43,371 - livekit.agents - DEBUG - using transcript io: `AgentSession` -> `TranscriptSynchronizer` -> `ChatCLI`
+2025-09-23 08:45:43,372 - english-teacher-agent - INFO - [ACTIVE] English Teacher Agent (voice-only) is now active!
+2025-09-23 08:45:43,383 - english-teacher-agent - INFO - Starting session keep-alive monitoring...
+2025-09-23 08:45:48,327 - google_genai.live - INFO - b'{\n  "setupComplete": {}\n}\n'
+2025-09-23 08:45:59,726 - livekit.agents - INFO - shutting down worker
+2025-09-23 08:45:59,728 - livekit.agents - DEBUG - shutting down job task
+2025-09-23 08:45:59,729 - livekit.plugins.google - DEBUG - send task finished.
+2025-09-23 08:45:59,730 - livekit.agents - DEBUG - job exiting
+2025-09-23 08:46:00,295 - livekit.agents - DEBUG - session closed
+2025-09-23 08:46:00,295 - livekit.agents - DEBUG - http_session(): closing the httpclient ctx
+2025-09-23 09:00:13,857 - english-teacher-agent - INFO - Applied Tavus API key
+2025-09-23 09:00:13,860 - english-teacher-agent - INFO - Applied Tavus Replica ID
+2025-09-23 09:00:13,861 - english-teacher-agent - INFO - Applied Tavus Persona ID (LiveKit-compatible)
+2025-09-23 09:00:13,862 - english-teacher-agent - INFO - Environment variables status:
+2025-09-23 09:00:13,863 - english-teacher-agent - INFO -   LIVEKIT_URL: OK
+2025-09-23 09:00:13,864 - english-teacher-agent - INFO -   LIVEKIT_API_KEY: OK
+2025-09-23 09:00:13,865 - english-teacher-agent - INFO -   LIVEKIT_API_SECRET: OK
+2025-09-23 09:00:13,866 - english-teacher-agent - INFO -   GOOGLE_API_KEY: OK
+2025-09-23 09:00:13,866 - english-teacher-agent - INFO -   TAVUS_API_KEY: OK
+2025-09-23 09:00:13,867 - english-teacher-agent - INFO -   TAVUS_REPLICA_ID: OK
+2025-09-23 09:00:13,868 - english-teacher-agent - INFO -   TAVUS_PERSONA_ID: OK
+2025-09-23 09:00:13,869 - english-teacher-agent - INFO - Starting development mode for room: english-teacher-demo
+2025-09-23 09:00:13,955 - english-teacher-agent - INFO - SSL verification disabled for development
+2025-09-23 09:00:14,248 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-09-23 09:00:14,270 - livekit.agents - DEV - Watching C:\Users\Dell\Downloads\tamil (2)
+2025-09-23 09:00:21,066 - english-teacher-agent - INFO - Environment variables status:
+2025-09-23 09:00:21,067 - english-teacher-agent - INFO -   LIVEKIT_URL: OK
+2025-09-23 09:00:21,068 - english-teacher-agent - INFO -   LIVEKIT_API_KEY: OK
+2025-09-23 09:00:21,068 - english-teacher-agent - INFO -   LIVEKIT_API_SECRET: OK
+2025-09-23 09:00:21,068 - english-teacher-agent - INFO -   GOOGLE_API_KEY: OK
+2025-09-23 09:00:21,069 - english-teacher-agent - INFO -   TAVUS_API_KEY: OK
+2025-09-23 09:00:21,069 - english-teacher-agent - INFO -   TAVUS_REPLICA_ID: OK
+2025-09-23 09:00:21,070 - english-teacher-agent - INFO -   TAVUS_PERSONA_ID: OK
+2025-09-23 09:00:21,088 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-09-23 09:00:21,120 - livekit.agents - INFO - starting worker
+2025-09-23 09:00:22,389 - livekit.agents - INFO - registered worker
+2025-09-23 09:00:37,102 - livekit.agents - INFO - received job request
+2025-09-23 09:00:37,186 - livekit.agents - INFO - initializing job runner
+2025-09-23 09:00:37,190 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-09-23 09:00:37,192 - livekit.agents - INFO - job runner initialized
+2025-09-23 09:00:37,209 - english-teacher-agent - INFO - Initializing English Teacher Agent with Tavus Avatar... (Restart #0)
+2025-09-23 09:00:37,217 - english-teacher-agent - INFO - [SUCCESS] Google Realtime model session created successfully
+2025-09-23 09:00:37,222 - english-teacher-agent - INFO - Configuring Tavus avatar with Replica ID: rf4703150052, Persona ID: p405fa2e1e31
+2025-09-23 09:00:37,227 - livekit.agents - DEBUG - http_session(): creating a new httpclient ctx
+2025-09-23 09:00:37,231 - english-teacher-agent - INFO - [AVATAR] Initializing Tavus avatar...
+2025-09-23 09:00:37,243 - livekit.plugins.tavus - DEBUG - starting avatar session
+2025-09-23 09:00:39,951 - livekit.plugins.tavus - ERROR - failed to call tavus api
+Traceback (most recent call last):
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python313\Lib\site-packages\livekit\plugins\tavus\api.py", line 126, in _post
+    raise APIStatusError(
+        "Server returned an error", status_code=response.status, body=text
+    )
+livekit.agents._exceptions.APIStatusError: Server returned an error (status_code=402, request_id=None, body={"message":"The user is out of conversational credits."}
+, retryable=False)
+2025-09-23 09:00:43,233 - livekit.plugins.tavus - ERROR - failed to call tavus api
+Traceback (most recent call last):
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python313\Lib\site-packages\livekit\plugins\tavus\api.py", line 126, in _post
+    raise APIStatusError(
+        "Server returned an error", status_code=response.status, body=text
+    )
+livekit.agents._exceptions.APIStatusError: Server returned an error (status_code=402, request_id=None, body={"message":"The user is out of conversational credits."}
+, retryable=False)
+2025-09-23 09:00:46,518 - livekit.plugins.tavus - ERROR - failed to call tavus api
+Traceback (most recent call last):
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python313\Lib\site-packages\livekit\plugins\tavus\api.py", line 126, in _post
+    raise APIStatusError(
+        "Server returned an error", status_code=response.status, body=text
+    )
+livekit.agents._exceptions.APIStatusError: Server returned an error (status_code=402, request_id=None, body={"message":"The user is out of conversational credits."}
+, retryable=False)
+2025-09-23 09:00:46,525 - english-teacher-agent - ERROR - Failed to initialize Tavus avatar: Failed to call Tavus API after all retries (body=None, retryable=True)
+2025-09-23 09:00:46,527 - english-teacher-agent - INFO - Falling back to voice-only mode...
+2025-09-23 09:00:46,627 - livekit.agents - DEBUG - input stream attached
+2025-09-23 09:00:51,756 - livekit.agents - WARNING - Running <Task finished name='Task-27' coro=<AgentSession._update_activity() done, defined at C:\Users\Dell\AppData\Local\Programs\Python\Python313\Lib\site-packages\livekit\agents\voice\agent_session.py:806> result=None> took too long: 5.12 seconds
+2025-09-23 09:00:51,760 - livekit.plugins.google - DEBUG - connecting to Gemini Realtime API...
+2025-09-23 09:00:51,776 - livekit.agents - DEBUG - start reading stream
+2025-09-23 09:00:51,779 - livekit.agents - DEBUG - using audio io: `RoomIO` -> `AgentSession` -> `TranscriptSynchronizer` -> `RoomIO`
+2025-09-23 09:00:51,785 - livekit.agents - DEBUG - using transcript io: `AgentSession` -> `TranscriptSynchronizer` -> `RoomIO`
+2025-09-23 09:00:51,787 - english-teacher-agent - INFO - [ACTIVE] English Teacher Agent (voice-only) is now active!
+2025-09-23 09:00:51,789 - english-teacher-agent - INFO - Starting session keep-alive monitoring...
+2025-09-23 09:00:56,871 - google_genai.live - INFO - b'{\n  "setupComplete": {}\n}\n'
+2025-09-23 09:01:20,496 - livekit.agents - INFO - closing agent session due to participant disconnect (disable via `RoomInputOptions.close_on_disconnect=False`)
+2025-09-23 09:01:20,499 - livekit.agents - DEBUG - input stream detached
+2025-09-23 09:01:20,503 - livekit.plugins.google - DEBUG - send task finished.
+2025-09-23 09:01:20,507 - livekit.agents - DEBUG - stream closed
+2025-09-23 09:01:20,762 - livekit.agents - DEBUG - session closed
+2025-09-23 09:01:42,631 - livekit.agents - DEBUG - shutting down job task
+2025-09-23 09:01:42,640 - livekit.agents - DEBUG - job exiting
+2025-09-23 09:01:42,678 - livekit.agents - DEBUG - http_session(): closing the httpclient ctx
+2025-09-23 09:03:09,868 - livekit.agents - INFO - shutting down worker
+2025-09-24 14:30:42,719 - english-teacher-agent - INFO - Applied Tavus API key
+2025-09-24 14:30:42,721 - english-teacher-agent - INFO - Applied Tavus Replica ID
+2025-09-24 14:30:42,722 - english-teacher-agent - INFO - Applied Tavus Persona ID (LiveKit-compatible)
+2025-09-24 14:30:42,722 - english-teacher-agent - INFO - Environment variables status:
+2025-09-24 14:30:42,723 - english-teacher-agent - INFO -   LIVEKIT_URL: OK
+2025-09-24 14:30:42,723 - english-teacher-agent - INFO -   LIVEKIT_API_KEY: OK
+2025-09-24 14:30:42,724 - english-teacher-agent - INFO -   LIVEKIT_API_SECRET: OK
+2025-09-24 14:30:42,724 - english-teacher-agent - INFO -   GOOGLE_API_KEY: OK
+2025-09-24 14:30:42,725 - english-teacher-agent - INFO -   TAVUS_API_KEY: OK
+2025-09-24 14:30:42,725 - english-teacher-agent - INFO -   TAVUS_REPLICA_ID: OK
+2025-09-24 14:30:42,726 - english-teacher-agent - INFO -   TAVUS_PERSONA_ID: OK
+2025-09-24 14:30:42,726 - english-teacher-agent - INFO - Starting in console mode...
+2025-09-24 14:30:42,786 - english-teacher-agent - INFO - SSL verification disabled for development
+2025-09-24 14:30:42,794 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-09-24 14:30:42,802 - livekit.agents - INFO - starting worker
+2025-09-24 14:30:42,815 - livekit.agents - INFO - initializing job runner
+2025-09-24 14:30:42,817 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-09-24 14:30:42,818 - livekit.agents - INFO - job runner initialized
+2025-09-24 14:30:42,962 - english-teacher-agent - INFO - Initializing English Teacher Agent with Tavus Avatar... (Restart #0)
+2025-09-24 14:30:42,965 - english-teacher-agent - INFO - [SUCCESS] Google Realtime model session created successfully
+2025-09-24 14:30:42,966 - english-teacher-agent - INFO - Configuring Tavus avatar with Replica ID: rf4703150052, Persona ID: p405fa2e1e31
+2025-09-24 14:30:42,967 - livekit.agents - DEBUG - http_session(): creating a new httpclient ctx
+2025-09-24 14:30:42,968 - english-teacher-agent - INFO - [AVATAR] Initializing Tavus avatar...
+2025-09-24 14:30:42,970 - livekit.plugins.tavus - DEBUG - starting avatar session
+2025-09-24 14:30:59,662 - livekit.plugins.tavus - ERROR - failed to call tavus api
+Traceback (most recent call last):
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python313\Lib\site-packages\livekit\plugins\tavus\api.py", line 126, in _post
+    raise APIStatusError(
+        "Server returned an error", status_code=response.status, body=text
+    )
+livekit.agents._exceptions.APIStatusError: Server returned an error (status_code=402, request_id=None, body={"message":"The user is out of conversational credits."}
+, retryable=False)
+2025-09-24 14:31:03,421 - livekit.plugins.tavus - ERROR - failed to call tavus api
+Traceback (most recent call last):
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python313\Lib\site-packages\livekit\plugins\tavus\api.py", line 126, in _post
+    raise APIStatusError(
+        "Server returned an error", status_code=response.status, body=text
+    )
+livekit.agents._exceptions.APIStatusError: Server returned an error (status_code=402, request_id=None, body={"message":"The user is out of conversational credits."}
+, retryable=False)
+2025-09-24 14:31:07,896 - livekit.plugins.tavus - ERROR - failed to call tavus api
+Traceback (most recent call last):
+  File "C:\Users\Dell\AppData\Local\Programs\Python\Python313\Lib\site-packages\livekit\plugins\tavus\api.py", line 126, in _post
+    raise APIStatusError(
+        "Server returned an error", status_code=response.status, body=text
+    )
+livekit.agents._exceptions.APIStatusError: Server returned an error (status_code=402, request_id=None, body={"message":"The user is out of conversational credits."}
+, retryable=False)
+2025-09-24 14:31:07,902 - english-teacher-agent - ERROR - Failed to initialize Tavus avatar: Failed to call Tavus API after all retries (body=None, retryable=True)
+2025-09-24 14:31:07,904 - english-teacher-agent - INFO - Falling back to voice-only mode...
+2025-09-24 14:31:10,707 - livekit.plugins.google - DEBUG - connecting to Gemini Realtime API...
+2025-09-24 14:31:10,714 - livekit.agents - DEBUG - using audio io: `ChatCLI` -> `AgentSession` -> `TranscriptSynchronizer` -> `ChatCLI`
+2025-09-24 14:31:10,715 - livekit.agents - DEBUG - using transcript io: `AgentSession` -> `TranscriptSynchronizer` -> `ChatCLI`
+2025-09-24 14:31:10,716 - english-teacher-agent - INFO - [ACTIVE] English Teacher Agent (voice-only) is now active!
+2025-09-24 14:31:10,717 - english-teacher-agent - INFO - Starting session keep-alive monitoring...
+2025-09-24 14:31:14,724 - google_genai.live - INFO - b'{\n  "setupComplete": {}\n}\n'
+2025-09-24 14:31:27,366 - livekit.agents - INFO - shutting down worker
+2025-09-24 14:31:27,368 - livekit.agents - DEBUG - shutting down job task
+2025-09-24 14:31:27,370 - livekit.agents - DEBUG - job exiting
+2025-09-24 14:31:27,370 - livekit.plugins.google - DEBUG - send task finished.
+2025-09-24 14:31:27,623 - livekit.agents - DEBUG - session closed
+2025-09-24 14:31:27,624 - livekit.agents - DEBUG - http_session(): closing the httpclient ctx
+2025-09-25 15:44:35,477 - english-teacher-agent - WARNING - Ollama plugin not available, will use Gemini as primary LLM
+2025-09-25 15:44:35,485 - english-teacher-agent - INFO - Applied Tavus API key
+2025-09-25 15:44:35,487 - english-teacher-agent - INFO - Applied Tavus Replica ID
+2025-09-25 15:44:35,488 - english-teacher-agent - INFO - Applied Tavus Persona ID (LiveKit-compatible)
+2025-09-25 15:44:35,489 - english-teacher-agent - INFO - Environment variables status:
+2025-09-25 15:44:35,490 - english-teacher-agent - INFO -   LIVEKIT_URL: OK
+2025-09-25 15:44:35,491 - english-teacher-agent - INFO -   LIVEKIT_API_KEY: OK
+2025-09-25 15:44:35,493 - english-teacher-agent - INFO -   LIVEKIT_API_SECRET: OK
+2025-09-25 15:44:35,493 - english-teacher-agent - INFO -   GOOGLE_API_KEY: OK
+2025-09-25 15:44:35,494 - english-teacher-agent - INFO -   TAVUS_API_KEY: OK
+2025-09-25 15:44:35,495 - english-teacher-agent - INFO -   TAVUS_REPLICA_ID: OK
+2025-09-25 15:44:35,496 - english-teacher-agent - INFO -   TAVUS_PERSONA_ID: OK
